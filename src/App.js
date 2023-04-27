@@ -8,7 +8,7 @@ const options = [
 ];
 
 function App() {
-  const [text, setText] = React.useState("")
+  const [text, setText] = React.useState([,])
   const [category, setCategory] = React.useState(options[0].value);  
 
   const handleCategoryChange = (event) => {
@@ -18,13 +18,13 @@ function App() {
   async function handleClick(){
     try {
       const completedSentence = await FetchData(category);
-      setText(completedSentence);
+      const splitSentences = completedSentence.trim().split("\n")
+      // console.log(splitSentences)
+      // console.log(completedSentence)
+      setText(splitSentences);
     } catch (error) {
       console.error(error);
     }
-
-    //const textToDisplay = "We will look for e-dictation in category: " + category
-    //setText(completedSentence)
   }
   return (
     <div >
@@ -36,7 +36,9 @@ function App() {
       </select>
 
       <button onClick={handleClick}>leia etteütlus</button>
-      <div>{text}</div>
+      {text.map((single) => (
+        <p key={single} value={single}>{single}</p>
+      ))}
     </div>
   );
 }

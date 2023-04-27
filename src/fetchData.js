@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const text = "Genereeri eestikeelne E-etteütluse teksti, 5 paragraphiline, teemal: "
-const API_KEY = "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";
+const text = "Genereeri eestikeelne E-etteütluse teksti, 5 paragraphiline, igas paragrahvis 20-30 sõna, teemal: "
+const API_KEY = "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";
 
 const model = ["text-davinci-002","gpt-3.5-turbo"]
 const FetchData = async (input) => {
@@ -10,10 +10,9 @@ const FetchData = async (input) => {
       {
         prompt: `"${text}" "${input}"`,
         model: model[0],
-        max_tokens: 50,
-        n: 1,
-        stop: "/t",
-      },
+        max_tokens: 500,
+        n: 1 
+         },
       {
         headers: {
           "Content-Type": "application/json",
