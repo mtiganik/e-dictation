@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const text = "Genereeri eestikeelne E-etteütluse teksti, 5 paragraphiline, igas paragrahvis 20-30 sõna, teemal: "
+const text = "Genereeri eestikeelne E-etteütluse teksti, 5 paragraphiline, teemal: "
 const API_KEY = "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";
 
 const model = ["text-davinci-002","gpt-3.5-turbo"]

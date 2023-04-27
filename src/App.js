@@ -19,8 +19,6 @@ function App() {
     try {
       const completedSentence = await FetchData(category);
       const splitSentences = completedSentence.trim().split("\n")
-      // console.log(splitSentences)
-      // console.log(completedSentence)
       setText(splitSentences);
     } catch (error) {
       console.error(error);
