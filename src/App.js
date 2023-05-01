@@ -5,6 +5,7 @@ const options = [
   { label: 'Sport', value: 'sport' },
   { label: 'Art', value: 'kunst' },
   { label: 'Education', value: 'haridus' },
+  { label: 'Politics', value: 'poliitika' }
 ];
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
     try {
       const completedSentence = await FetchData(category);
       const splitSentences = completedSentence.trim().split("\n")
-      setText(splitSentences);
+
+      var filtered = splitSentences.filter(function (el) {
+        return el != null && el != " " && el != "\"" && el != "";
+      });
+      setText(filtered);
     } catch (error) {
       console.error(error);
     }
@@ -35,7 +40,10 @@ function App() {
 
       <button onClick={handleClick}>leia etteütlus</button>
       {text.map((single) => (
-        <p key={single} value={single}>{single}</p>
+        <>
+
+            <p key={single} value={single}>{single}</p>
+        </>
       ))}
     </div>
   );
